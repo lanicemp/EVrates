@@ -1,11 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
+import UserHours from "./UserHours";
 import UserMiles from "./UserMiles";
 import UserMonthlyBill from "./UserMonthlyBill";
 import UserRate from "./UserRate";
-
-
 
 const UserForm = () => {
   const [rate, setRate] = useState("Rate A");
@@ -63,24 +62,16 @@ const UserForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <UserRate handleRateChange={handleRateChange} rate ={rate}/>
-       <UserMonthlyBill handleElectricChange={handleElectricChange} electricBill={electricBill}/>
-       <UserMiles handleMileChange={handleMileChange} miles={miles}/>
-        <h3>What hours of the day do you plan to charge your EV? </h3>
-        <select
-          name='time-of-use'
-          value={timeOfUse}
-          type='number'
-          onChange={handleTOUChange}
-        >
-          <option value='Between midnight and 5am'>
-            Between midnight and 5am
-          </option>
-          <option value='Between 5am and 9pm'>Bewteen 5am and 9pm</option>
-          <option value='Between 9pm and midnight'>
-            Between 9pm and midnight
-          </option>
-        </select>
+        <UserRate handleRateChange={handleRateChange} rate={rate} />
+        <UserMonthlyBill
+          handleElectricChange={handleElectricChange}
+          electricBill={electricBill}
+        />
+        <UserMiles handleMileChange={handleMileChange} miles={miles} />
+        <UserHours
+          handleTOUChange={handleTOUChange}
+          timeOfUse={timeOfUse}
+        ></UserHours>
         <button type='submit'>Submit</button>
       </form>
 
