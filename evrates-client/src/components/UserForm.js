@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import UserHours from "./UserHours";
+import UserTimeOfUse from "./UserTimeOfUse";
 import UserMiles from "./UserMiles";
 import UserMonthlyBill from "./UserMonthlyBill";
 import UserRate from "./UserRate";
@@ -68,10 +68,10 @@ const UserForm = () => {
           electricBill={electricBill}
         />
         <UserMiles handleMileChange={handleMileChange} miles={miles} />
-        <UserHours
+        <UserTimeOfUse
           handleTOUChange={handleTOUChange}
           timeOfUse={timeOfUse}
-        ></UserHours>
+        ></UserTimeOfUse>
         <button type='submit'>Submit</button>
       </form>
 
