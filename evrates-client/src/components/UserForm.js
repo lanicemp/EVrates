@@ -1,30 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
+import UserMiles from "./UserMiles";
 import UserMonthlyBill from "./UserMonthlyBill";
 import UserRate from "./UserRate";
 
-const StyledInputWrapper = styled.div`
-  justify-content: center;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-`;
-const StyledInput = styled.input`
-  background: #54c6eb;
 
-  border-radius: 10px;
-  align-content: center;
-`;
-
-const StyledBall = styled.div`
-  positon: absolute;
-  background: yellow;
-  border-radius: 100%;
-  height: 12px;
-  width: 12px;
-  border: 1px solid orange;
-`;
 
 const UserForm = () => {
   const [rate, setRate] = useState("Rate A");
@@ -84,18 +65,7 @@ const UserForm = () => {
       <form onSubmit={handleSubmit}>
         <UserRate handleRateChange={handleRateChange} rate ={rate}/>
        <UserMonthlyBill handleElectricChange={handleElectricChange} electricBill={electricBill}/>
-        <h3>How Many miles do you drive per year?</h3>
-        <StyledInputWrapper>
-          <StyledInput
-            name='miles'
-            value={miles}
-            type='range'
-            min='1000'
-            max='100000'
-            step='1000'
-            onChange={handleMileChange}
-          />
-        </StyledInputWrapper>
+       <UserMiles handleMileChange={handleMileChange} miles={miles}/>
         <h3>What hours of the day do you plan to charge your EV? </h3>
         <select
           name='time-of-use'
