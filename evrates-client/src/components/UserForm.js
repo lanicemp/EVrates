@@ -1,10 +1,39 @@
 import React from "react";
 import { useState } from "react";
+import styled from "styled-components";
+import UserMonthlyBill from "./UserMonthlyBill";
+import UserRate from "./UserRate";
+
+const StyledInputWrapper = styled.div`
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+const StyledInput = styled.input`
+  background: #54c6eb;
+
+  border-radius: 10px;
+  align-content: center;
+`;
+
+const StyledBall = styled.div`
+  positon: absolute;
+  background: yellow;
+  border-radius: 100%;
+  height: 12px;
+  width: 12px;
+  border: 1px solid orange;
+`;
 
 const UserForm = () => {
-  const [rate, setRate] = useState("Rate A", "Rate B");
-  const [miles, setMiles] = useState("");
-  const [timeOfUse, setTimeOfUse] = useState("");
+  const [rate, setRate] = useState("Rate A");
+  const [miles, setMiles] = useState("20000");
+  const [timeOfUse, setTimeOfUse] = useState("Between midnight and 5am");
+  const [message_A, setMessageA] = useState("");
+  const [electricBill, setElectricBill] = useState("");
+
+  //   const [message_B, setMessageB] = (useState = "");
 
   const handleRateChange = (e) => {
     const { value } = e.target;
@@ -19,43 +48,54 @@ const UserForm = () => {
     const { value } = e.target;
     setTimeOfUse(value);
   };
+
+  const handleElectricChange = (e) => {
+    const { value } = e.target;
+    setElectricBill(value);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+    let message_A = "Rate A is the Better Option";
+    let message_B = "Rate B is the Better Option";
+    let bill_A = "";
+    // let homerate =
+    //rate A is Flat $0.15/ kWh
+    //rate B is TOU rate of &0.20/ kWh between noon and 6pm, and $0.08/ kWh otherwise
+    console.log(rate === "Rate A");
+    console.log(miles);
+    console.log(0.3 * 0.15 * miles);
+    if (rate === "Rate A") {
+      bill_A = 0.3 * 0.15 * miles;
+      console.log(bill_A);
+      return setMessageA(message_A);
+    }
+    //   return (setMessageB(message_B));
+
     console.log(rate);
     console.log(miles);
     console.log(timeOfUse);
-    setRate("");
-    setMiles("");
-    setTimeOfUse("");
+    setRate("Rate A");
+    setMiles("20000");
+    setTimeOfUse("Between midnight and 5am");
   };
 
   return (
     <div>
-      <h1></h1>
-      <h3>Which rate do you currently use?</h3>
       <form onSubmit={handleSubmit}>
-        <h3>Rate A </h3>
-        <h3> Rate B</h3>
-        <select
-          name='rate'
-          value={rate}
-          type='text'
-          onChange={handleRateChange}
-        >
-          <option value='RateA'>Rate A </option>
-          <option value='RateB'>Rate B</option>
-        </select>
+        <UserRate handleRateChange={handleRateChange} rate ={rate}/>
+       <UserMonthlyBill handleElectricChange={handleElectricChange} electricBill={electricBill}/>
         <h3>How Many miles do you drive per year?</h3>
-        <input
-          name='miles'
-          value={miles}
-          type='range'
-          min='1000'
-          max='100000'
-          step='1000'
-          value='20000'
-          onChange={handleMileChange}
-        ></input>
+        <StyledInputWrapper>
+          <StyledInput
+            name='miles'
+            value={miles}
+            type='range'
+            min='1000'
+            max='100000'
+            step='1000'
+            onChange={handleMileChange}
+          />
+        </StyledInputWrapper>
         <h3>What hours of the day do you plan to charge your EV? </h3>
         <select
           name='time-of-use'
@@ -73,6 +113,9 @@ const UserForm = () => {
         </select>
         <button type='submit'>Submit</button>
       </form>
+
+      <h2>{message_A}</h2>
+      {/* <h2>{message_B}</h2> */}
     </div>
   );
 };
