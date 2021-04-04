@@ -1,9 +1,9 @@
-import React from "react";
+// import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import UserTimeOfUse from "./UserTimeOfUse";
 import UserMiles from "./UserMiles";
-import UserMonthlyBill from "./UserMonthlyBill";
+
 import UserRate from "./UserRate";
 
 const UserForm = () => {
@@ -36,9 +36,11 @@ const UserForm = () => {
   // };
   const handleSubmit = (e) => {
     e.preventDefault();
+    let userRateA = "Your rate is Rate A";
+    let userRateB = "Your rate is Rate B";
     let message_A = "Rate A is the Better Option.";
     let message_B = "Rate B is the Better Option";
-    let savings= "Savings of!"
+    let savings = "Savings of!";
     let difference = "";
     let homeLoadA = 1350.56;
     let homeLoadB = 1033.0;
@@ -62,19 +64,31 @@ const UserForm = () => {
       console.log("Between noon and 6pm", timeOfUse === "Between noon and 6pm");
       if (timeOfUse === "Between noon and 6pm") {
         if (bill_A < bill_B_high) {
-          difference = bill_B_high - bill_A
-          return setMessage(message_A), setDifference(difference), setSavings(savings);
+          difference = bill_B_high - bill_A;
+          return (
+            setMessage(message_A),
+            setDifference(difference),
+            setSavings(savings)
+          );
         }
-        difference = bill_A - bill_B_high
-        return setMessage(message_B), setDifference(difference), setSavings(savings);
+        difference = bill_A - bill_B_high;
+        return (
+          setMessage(message_B), setDifference(difference), setSavings(savings)
+        );
       }
       if (timeOfUse === "Between 7pm and 11am") {
         if (bill_A < bill_B_low) {
-          difference = bill_B_low - bill_A
-          return setMessage(message_A), setDifference(difference), setSavings(savings);
+          difference = bill_B_low - bill_A;
+          return (
+            setMessage(message_A),
+            setDifference(difference),
+            setSavings(savings)
+          );
         }
-        difference = bill_A - bill_B_low
-        return setMessage(message_B), setDifference(difference), setSavings(savings)
+        difference = bill_A - bill_B_low;
+        return (
+          setMessage(message_B), setDifference(difference), setSavings(savings)
+        );
       }
       // return setMessageA(message_A);
     } else if (rate === "Rate B") {
@@ -101,9 +115,8 @@ const UserForm = () => {
     setMiles("20000");
     setTimeOfUse("Between noon and 6pm");
     setMessage("");
-    setSavings("")
-    setDifference("")
-   
+    setSavings("");
+    setDifference("");
   };
 
   return (
