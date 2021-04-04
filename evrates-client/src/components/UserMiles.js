@@ -1,6 +1,5 @@
-import react from 'react'
+import react from "react";
 import styled from "styled-components";
-
 
 const StyledInputWrapper = styled.div`
   justify-content: center;
@@ -24,22 +23,23 @@ const StyledBall = styled.div`
   border: 1px solid orange;
 `;
 
-const UserMiles = ({handleMileChange, miles})=>{
-    return(
-   <div>
-    <h3>How Many miles do you drive per year?</h3>
-    <StyledInputWrapper>
-      <StyledInput
-        name='miles'
-        value={miles}
-        type='range'
-        min='1000'
-        max='100000'
-        step='1000'
-        onChange={handleMileChange}
-      />
-    </StyledInputWrapper>
+const UserMiles = ({ handleMileChange, miles }) => {
+  return (
+    <div>
+      <h3>How Many miles do you drive per year?</h3>
+      <StyledInputWrapper>
+        <StyledInput
+          name='miles'
+          value={miles}
+          type='range'
+          min='1000'
+          max='100000'
+          step='1000'
+          onChange={handleMileChange}
+        />
+      </StyledInputWrapper>
+      <p>{miles}</p>
     </div>
-    )
-}
-export default UserMiles
+  );
+};
+export default UserMiles;
