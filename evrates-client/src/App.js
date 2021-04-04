@@ -1,11 +1,12 @@
+import "./App.css";
 
-import './App.css';
-import UserForm from './components/UserForm'
+import MainPage from "./components/MainPage";
 
 function App() {
   return (
-    <div className="App">
-      <UserForm></UserForm>
+    <div className='App'>
+      <MainPage />
+ 
     </div>
   );
 }
