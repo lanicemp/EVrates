@@ -1,7 +1,6 @@
 import react from "react";
 
-
-const UserTimeOfUse = ({handleTOUChange,timeOfUse }) => {
+const UserTimeOfUse = ({ handleTOUChange, timeOfUse }) => {
   return (
     <div>
       <h3>What hours of the day do you plan to charge your EV? </h3>
@@ -11,15 +10,10 @@ const UserTimeOfUse = ({handleTOUChange,timeOfUse }) => {
         type='number'
         onChange={handleTOUChange}
       >
-        <option value='Between midnight and 5am'>
-          Between midnight and 5am
-        </option>
-        <option value='Between 5am and 9pm'>Bewteen 5am and 9pm</option>
-        <option value='Between 9pm and midnight'>
-          Between 9pm and midnight
-        </option>
+        <option value='Between noon and 6pm'>Between noon and 6pm</option>
+        <option value='Between 7pm and 11am'>Between 7pm and 11am</option>
       </select>
     </div>
   );
 };
-export default UserTimeOfUse
+export default UserTimeOfUse;
