@@ -1,10 +1,12 @@
-// import React from "react";
+import React from "react";
+import ReactDOM from "react-dom";
+import Modal from "react-modal";
 import { useState } from "react";
 import styled from "styled-components";
 import UserTimeOfUse from "./UserTimeOfUse";
 import UserMiles from "./UserMiles";
-
 import UserRate from "./UserRate";
+import { Carousel } from "react-responsive-carousel";
 
 const UserForm = () => {
   const [rate, setRate] = useState("Rate A");
@@ -13,8 +15,19 @@ const UserForm = () => {
   const [message, setMessage] = useState("");
   const [difference, setDifference] = useState("");
   const [savings, setSavings] = useState("");
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [step, setStep] = useState(1);
 
-  //   const [message_B, setMessageB] = (useState = "");
+  const openModal = () => {
+    setIsOpen(true);
+  };
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+  }
+  function closeModal() {
+    setIsOpen(false);
+    setStep(1);
+  }
 
   const handleRateChange = (e) => {
     const { value } = e.target;
@@ -36,6 +49,7 @@ const UserForm = () => {
   // };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setStep(step +1 )
     let userRateA = "Your rate is Rate A";
     let userRateB = "Your rate is Rate B";
     let message_A = "Rate A is the Better Option.";
@@ -57,9 +71,6 @@ const UserForm = () => {
     //the total during high usage was 521.1727199 the total during low usage was 511.8280342.
     //homeloadB= 1033.000754
 
-    console.log(rate === "Rate A");
-    console.log("miles", miles);
-    console.log("bill A ", 0.3 * 0.15 * miles + homeLoadA);
     if (rate === "Rate A") {
       console.log("Between noon and 6pm", timeOfUse === "Between noon and 6pm");
       if (timeOfUse === "Between noon and 6pm") {
@@ -117,24 +128,67 @@ const UserForm = () => {
     setMessage("");
     setSavings("");
     setDifference("");
+    
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <UserRate handleRateChange={handleRateChange} rate={rate} />
+      <div>
+        <button onClick={openModal}>Open Modal</button>
 
-        <UserMiles handleMileChange={handleMileChange} miles={miles} />
-        <UserTimeOfUse
-          handleTOUChange={handleTOUChange}
-          timeOfUse={timeOfUse}
-        ></UserTimeOfUse>
-        <button type='submit'>Submit</button>
-      </form>
+        <Modal
+          className='modal-container'
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          contentLabel='Example Modal'
+        >
+          <div className='modal-header'>
+            <p>step 1 of {step}</p>
+            <div onClick={closeModal} style={{ cursor: "pointer" }}>
+              ✖
+            </div>
+          </div>
 
-      <h3>{message}</h3>
-      <h3>{savings}</h3>
-      <h2>{difference}</h2>
+          <form className='modal-form' onSubmit={handleSubmit}>
+            {step === 1 && (
+              <UserRate handleRateChange={handleRateChange} rate={rate} />
+            )}
+            {step === 2 && (
+              <UserMiles handleMileChange={handleMileChange} miles={miles} />
+            )}
+            {step === 3 && (
+              <UserTimeOfUse
+                handleTOUChange={handleTOUChange}
+                timeOfUse={timeOfUse}
+              ></UserTimeOfUse>
+            )}
+            {step === 4 && (
+              <div className="form-component">
+                <h1>testing</h1>
+                <h3>{message}</h3>
+                <h3>{savings}</h3>
+                <h2>{difference}</h2>{" "}
+              </div>
+            )}
+          </form>
+          <div className='button-container'>
+            
+            {(step === 2 || step === 3) && (
+              <button onClick={() => setStep(step - 1)}>previous </button>
+            )}
+            {(step === 1 || step === 2) && (
+              <button onClick={() => setStep(step + 1)}>next </button>
+            )}
+            {step === 3 && (
+              <button type='submit' onClick={handleSubmit}>
+                
+                Submit
+              </button>
+            )}
+          </div>
+        </Modal>
+      </div>
     </div>
   );
 };
