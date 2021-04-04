@@ -1,4 +1,4 @@
-import react from "react";
+// import react from "react";
 
 const UserRate = ({ handleRateChange, rate }) => {
   //line 3 destructures handleRrateChange and HandleSubmit from props
