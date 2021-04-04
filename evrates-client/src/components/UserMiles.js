@@ -1,4 +1,4 @@
-// import react from "react";
+ import React from "react";
 import styled from "styled-components";
 
 const StyledInputWrapper = styled.div`
@@ -25,7 +25,7 @@ const StyledBall = styled.div`
 
 const UserMiles = ({ handleMileChange, miles }) => {
   return (
-    <div>
+    <div className="form-component">
       <h3>How Many miles do you drive per year?</h3>
       <StyledInputWrapper>
         <StyledInput
