@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+
 import Modal from "react-modal";
 import { useState } from "react";
 import styled from "styled-components";
@@ -134,14 +134,14 @@ const UserForm = () => {
   return (
     <div>
       <div>
-        <button onClick={openModal}>Open Modal</button>
+        <button className="modal-button" onClick={openModal}>Get your Electric Rate </button>
 
         <Modal
           className='modal-container'
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
-          contentLabel='Example Modal'
+          
         >
           <div className='modal-header'>
             <p>step 1 of {step}</p>
