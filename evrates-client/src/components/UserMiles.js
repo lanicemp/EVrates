@@ -27,8 +27,8 @@ const UserMiles = ({ handleMileChange, miles }) => {
   return (
     <div className="form-component">
       <h3>How Many miles do you drive per year?</h3>
-      <StyledInputWrapper>
-        <StyledInput
+      {/* <StyledInputWrapper> */}
+        <input
           name='miles'
           value={miles}
           type='range'
@@ -37,7 +37,7 @@ const UserMiles = ({ handleMileChange, miles }) => {
           step='1000'
           onChange={handleMileChange}
         />
-      </StyledInputWrapper>
+      {/* </StyledInputWrapper> */}
       <p>{miles}</p>
     </div>
   );
