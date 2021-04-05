@@ -1,5 +1,6 @@
 import React from "react";
 import UserForm from "./UserForm";
+import  "../CSS/MainPage.css"
 
 const MainPage = () => {
   return (
