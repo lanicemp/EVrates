@@ -1,13 +1,12 @@
 import React from "react";
-
 import Modal from "react-modal";
 import { useState } from "react";
 import styled from "styled-components";
 import UserTimeOfUse from "./UserTimeOfUse";
 import UserMiles from "./UserMiles";
 import UserRate from "./UserRate";
-import { Row, Button, Input } from 'antd';
-import { Carousel } from "react-responsive-carousel";
+import { Row, Button, Input } from "antd";
+import "../CSS/UserForm.css"
 
 const UserForm = () => {
   const [rate, setRate] = useState("Rate A");
@@ -56,7 +55,7 @@ const UserForm = () => {
   // };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStep(step +1 )
+    setStep(step + 1);
     let userRateA = "Your rate is Rate A";
     let userRateB = "Your rate is Rate B";
     let message_A = "Rate A is the Better Option.";
@@ -112,16 +111,31 @@ const UserForm = () => {
     } else if (rate === "Rate B") {
       if (timeOfUse === "Between noon and 6pm") {
         if (bill_A < bill_B_high) {
-          return setMessage(message_A);
+          difference = bill_B_high - bill_A;
+          return (
+            setMessage(message_A),
+            setDifference(difference),
+            setSavings(savings)
+          );
         }
-        return setMessage(message_B);
+        difference = bill_A - bill_B_high;
+        return (
+          setMessage(message_B), setDifference(difference), setSavings(savings)
+        );
       }
       if (timeOfUse === "Between 7pm and 11am") {
         if (bill_A < bill_B_low) {
-          return setMessage(message_A);
+          difference = bill_B_low - bill_A;
+          return (
+            setMessage(message_A),
+            setDifference(difference),
+            setSavings(savings)
+          );
         }
-
-        return setMessage(message_B), { bill_B_low };
+        difference = bill_A - bill_B_low;
+        return (
+          setMessage(message_B), setDifference(difference), setSavings(savings)
+        );
       }
     }
     //   return (setMessageB(message_B));
@@ -135,21 +149,24 @@ const UserForm = () => {
     setMessage("");
     setSavings("");
     setDifference("");
-    
   };
 
   return (
     <div>
-      <div>
-        <button className="modal-button" onClick={openModal}>Get your Electric Rate </button>
+      
+        <button
+          className='modal-button'
+          style={{ cursor: "pointer" }}
+          onClick={openModal}
+        >
+          Get your Electric Rate{" "}
+        </button>
 
         <Modal
           className='modal-container modal-backdrop fade show'
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
-          
-          
         >
           <div className='modal-header'>
             <p>step 1 of {step}</p>
@@ -172,31 +189,34 @@ const UserForm = () => {
               ></UserTimeOfUse>
             )}
             {step === 4 && (
-              <div className="form-component">
-               
+              <div className='form-component'>
+                <div className= "form-message">
                 <h3>{message}</h3>
+                </div>
+                <div className="form-savings">
                 <h3>{savings}</h3>
-                <h2>{difference.toFixed(2)}</h2>{" "}
+                </div>
+                <div className="form-difference">
+                <h2>${difference.toFixed(2)}</h2>{" "}
+                </div>
               </div>
             )}
           </form>
-          <div className='button-container'>
-            
+          <div className='progress-button'>
             {(step === 2 || step === 3) && (
-              <button onClick={() => setStep(step - 1)}>previous </button>
+              <button className='progress-button' onClick={() => setStep(step - 1)}>previous </button>
             )}
             {(step === 1 || step === 2) && (
-              <button onClick={() => setStep(step + 1)}>next </button>
+              <button className='progress-button' onClick={() => setStep(step + 1)}>next </button>
             )}
             {step === 3 && (
-              <button type='submit' onClick={handleSubmit}>
-                
+              <button className='progress-button'type='submit' onClick={handleSubmit}>
                 Submit
               </button>
             )}
-          </div>
+        </div>
         </Modal>
-      </div>
+      
     </div>
   );
 };
