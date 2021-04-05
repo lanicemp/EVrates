@@ -2,8 +2,10 @@
 
 const UserTimeOfUse = ({ handleTOUChange, timeOfUse }) => {
   return (
+    
     <div className="form-component">
       <h3>What hours of the day do you plan to charge your EV? </h3>
+      <br></br>
       <select
         name='time-of-use'
         value={timeOfUse}
