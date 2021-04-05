@@ -6,8 +6,12 @@ const UserRate = ({ handleRateChange, rate }) => {
   return (
     <div className="form-component">
       <h3 >Which rate do you currently use?</h3>
-      <h3>Rate A .15 </h3>
-      <h3> Rate B</h3>
+      <br></br>
+      <div className="rate-info">
+      <h4>Rate A is a flat rate</h4>
+      <h4> Rate B is based on your time of Use</h4>
+      </div>
+      <br></br>
       <select name='rate' value={rate} type='text' onChange={handleRateChange}>
         <option value='Rate A'>Rate A </option>
         <option value='Rate B'>Rate B</option>
