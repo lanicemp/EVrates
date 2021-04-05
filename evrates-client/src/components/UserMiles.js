@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import"../CSS/UserMiles.css"
 
 
 // `;
@@ -7,7 +8,9 @@ import styled from "styled-components";
 const UserMiles = ({ handleMileChange, miles }) => {
   return (
     <div className='form-component'>
+        <div className= "modal-question">
       <h3>How Many miles do you drive per year?</h3>
+      </div>
       <br></br>
 
       <input
@@ -23,8 +26,9 @@ const UserMiles = ({ handleMileChange, miles }) => {
         onChange={handleMileChange}
       />
       <br></br>
-
+<div className="miles">
       <h3>{miles}</h3>
+      </div>
     </div>
   );
 };
