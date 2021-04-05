@@ -13,7 +13,7 @@
     width: 100%;
     height: 500px;
     background-image: url(https://www.generalkinematics.com/wp-content/uploads/2018/04/New-GK-2018-Size-2.png) ;
-    opacity: 0.6;
+    opacity: .5;
     position: flex;
     background-size: cover;
     margin-top: 1%;
@@ -33,9 +33,12 @@
   .main-message {
   font-size: 3rem;
   font-style: oblique;
-  color: #073b4c;  
+  color: #023047;  
+  text-shadow: whitesmoke;
   line-height: 0.9;
   text-align: center;
+  font-weight: bold;
+  
   }
   button.modal-button {
     background-color: #ffd500;
