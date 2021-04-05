@@ -1,51 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+@import "./CSS/reset.css";
 
 .modal-container {
   display: flex;
@@ -94,45 +47,6 @@ flex-direction: column ;
 align-items: center;
 }
 
-.main-page{
-  position: relative; 
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-
-}
-.main-page::before{
-  content: "";
-  width: 100%;
-  height:500px;
-  background-image: url(https://www.generalkinematics.com/wp-content/uploads/2018/04/New-GK-2018-Size-2.png);
-  opacity: 0.6;
-  position: absolute;
-  background-size: cover;
-  margin-top: 1%;
-}
-.main-banner-content{
-  display: flex;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  width: 100% ;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: space-between; */
- 
-}
-.main-message {
-font-size: 4rem;
-font-style: oblique;
-color: #073b4c;  
-line-height: 0.9;
-text-align: center;
-}
 
 .modal-backdrop {
   /* position: fixed; */
@@ -156,4 +70,20 @@ h3 {
 }
 .miles-bar{
   width: 80%;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 40rem;
+    left: calc(50% - 20rem);
+  }
+}
+
+@keyframes fade-slide-in {
+  from {
+    transform: translateY(-5rem);
+  }
+  to {
+    transform: translateY(0);
+  } 
 }
