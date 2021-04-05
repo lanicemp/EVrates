@@ -46,15 +46,25 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 .modal-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 500px;
-  width: 70%;
-  margin: 2em auto ;  
+  height: 300px;
+  width: 50%;
+  margin: 9em auto ; 
+  background-color: #34a0a4;
+ 
+  /* padding: 2em; */
 
+ 
 }
+.modal-button{
+  box-shadow:inset 0 0.6em 2em -0.3em rgba(0,0,0,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  position:relative;
+}
+
 .modal-header {
   width: 100% ;
   display: flex;
@@ -68,13 +78,14 @@ margin: 0 auto;
 display: flex; 
 flex-direction: row;
 justify-content: center;
+
 }
 .modal-form {
-height: 300px  ;
+height: 200px  ;
 width: 90% ;
-margin: 1em auto ;
-/* border: 2px solid;  */
-padding:1em;
+margin: 5em auto ;
+
+padding:0em auto;
 
 }
 .form-component{
@@ -98,7 +109,7 @@ align-items: center;
   width: 100%;
   height:500px;
   background-image: url(https://www.generalkinematics.com/wp-content/uploads/2018/04/New-GK-2018-Size-2.png);
-  opacity: 0.5;
+  opacity: 0.6;
   position: absolute;
   background-size: cover;
   margin-top: 1%;
@@ -116,5 +127,33 @@ align-items: center;
  
 }
 .main-message {
-font-size: 3rem;
+font-size: 4rem;
+font-style: oblique;
+color: #073b4c;  
+line-height: 0.9;
+text-align: center;
+}
+
+.modal-backdrop {
+  /* position: fixed; */
+  /* top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh; */
+  background-color: white;
+  opacity: .8;
+}
+fade {
+  transition: opacity .30s linear;
+}
+h3 {
+  font-size: x-large;
+}
+.rate-info{
+  column-count: 2 ;
+
+}
+.miles-bar{
+  width: 80%;
 }
