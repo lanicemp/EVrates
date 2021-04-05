@@ -169,7 +169,7 @@ const UserForm = () => {
           onRequestClose={closeModal}
         >
           <div className='modal-header'>
-            <p>step 1 of {step}</p>
+            <p>step {step} of 4</p>
             <div onClick={closeModal} style={{ cursor: "pointer" }}>
               ✖
             </div>
