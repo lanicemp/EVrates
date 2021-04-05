@@ -6,6 +6,7 @@ import styled from "styled-components";
 import UserTimeOfUse from "./UserTimeOfUse";
 import UserMiles from "./UserMiles";
 import UserRate from "./UserRate";
+import { Row, Button, Input } from 'antd';
 import { Carousel } from "react-responsive-carousel";
 
 const UserForm = () => {
@@ -137,10 +138,11 @@ const UserForm = () => {
         <button className="modal-button" onClick={openModal}>Get your Electric Rate </button>
 
         <Modal
-          className='modal-container'
+          className='modal-container modal-backdrop fade show'
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
+          
           
         >
           <div className='modal-header'>
@@ -165,10 +167,10 @@ const UserForm = () => {
             )}
             {step === 4 && (
               <div className="form-component">
-                <h1>testing</h1>
+               
                 <h3>{message}</h3>
                 <h3>{savings}</h3>
-                <h2>{difference}</h2>{" "}
+                <h2>{difference.toFixed(2)}</h2>{" "}
               </div>
             )}
           </form>
