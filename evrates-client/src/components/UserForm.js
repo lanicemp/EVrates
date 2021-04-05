@@ -28,6 +28,12 @@ const UserForm = () => {
   function closeModal() {
     setIsOpen(false);
     setStep(1);
+    setRate("Rate A");
+    setMiles("20000");
+    setTimeOfUse("Between noon and 6pm");
+    setMessage("");
+    setSavings("");
+    setDifference("");
   }
 
   const handleRateChange = (e) => {
