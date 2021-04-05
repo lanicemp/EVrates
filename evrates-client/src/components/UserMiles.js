@@ -1,44 +1,30 @@
- import React from "react";
+import React from "react";
 import styled from "styled-components";
 
-const StyledInputWrapper = styled.div`
-  justify-content: center;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-`;
-const StyledInput = styled.input`
-  background: #54c6eb;
 
-  border-radius: 10px;
-  align-content: center;
-`;
-
-const StyledBall = styled.div`
-  positon: absolute;
-  background: yellow;
-  border-radius: 100%;
-  height: 12px;
-  width: 12px;
-  border: 1px solid orange;
-`;
+// `;
 
 const UserMiles = ({ handleMileChange, miles }) => {
   return (
-    <div className="form-component">
+    <div className='form-component'>
       <h3>How Many miles do you drive per year?</h3>
-      {/* <StyledInputWrapper> */}
-        <input
-          name='miles'
-          value={miles}
-          type='range'
-          min='1000'
-          max='100000'
-          step='1000'
-          onChange={handleMileChange}
-        />
-      {/* </StyledInputWrapper> */}
-      <p>{miles}</p>
+      <br></br>
+
+      <input
+      className="miles-bar"
+        name='miles'
+        value={miles}
+        type='range'
+        min='1000'
+        max='100000'
+        step='1000'
+        width='100'
+        
+        onChange={handleMileChange}
+      />
+      <br></br>
+
+      <h3>{miles}</h3>
     </div>
   );
 };
