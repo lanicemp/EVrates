@@ -1,65 +1,67 @@
-.main-page{
-    position: relative; 
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  
-  }
-  .main-page::before{
-    content: "";
-    width: 100%;
-    height: 500px;
-    background-image: url(https://www.generalkinematics.com/wp-content/uploads/2018/04/New-GK-2018-Size-2.png) ;
-    opacity: .5;
-    position: flex;
-    background-size: cover;
-    margin-top: 1%;
-  }
-  .main-banner-content{
-    display: flex;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    width: 100% ;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: space-between; */
-   
-  }
-  .main-message {
+.main-page {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-page::before {
+  content: "";
+  width: 100%;
+  height: 500px;
+  background-image: url(https://www.generalkinematics.com/wp-content/uploads/2018/04/New-GK-2018-Size-2.png);
+  opacity: 0.5;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+
+
+}
+.main-banner-content {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+.main-message {
   font-size: 3rem;
   font-style: oblique;
-  color: #023047;  
+  color: #023047;
   text-shadow: whitesmoke;
   line-height: 0.9;
   text-align: center;
   font-weight: bold;
-  
-  }
-  button.modal-button {
-    background-color: #ffd500;
-    font-size: larger;
-    border: whitesmoke;
-    font-style: italic;
-   
+}
+button.modal-button {
+  background-color: #ffd500;
+  font-size: larger;
+  border: whitesmoke;
+  font-style: italic;
+  margin: 1em;
 }
 
 @media (min-width: 768px) {
-    .modal {
-      width: 40rem;
-      left: calc(50% - 20rem);
-    }
-  }
   
-  @keyframes fade-slide-in {
-    from {
-      transform: translateY(-5rem);
-    }
-    to {
-      transform: translateY(0);
-    } 
+  .main-banner-content{
+    top:40%; 
   }
+}
+
+@keyframes fade-slide-in {
+  from {
+    transform: translateY(-5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
