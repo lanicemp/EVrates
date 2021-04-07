@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/evrates/static/css/main.d6ebab21.chunk.css",
+    "main.css": "/evrates/static/css/main.70fb4152.chunk.css",
     "main.js": "/evrates/static/js/main.95e725a0.chunk.js",
     "main.js.map": "/evrates/static/js/main.95e725a0.chunk.js.map",
     "runtime-main.js": "/evrates/static/js/runtime-main.1cfadf29.js",
@@ -10,13 +10,13 @@
     "static/js/3.f426b552.chunk.js": "/evrates/static/js/3.f426b552.chunk.js",
     "static/js/3.f426b552.chunk.js.map": "/evrates/static/js/3.f426b552.chunk.js.map",
     "index.html": "/evrates/index.html",
-    "static/css/main.d6ebab21.chunk.css.map": "/evrates/static/css/main.d6ebab21.chunk.css.map",
+    "static/css/main.70fb4152.chunk.css.map": "/evrates/static/css/main.70fb4152.chunk.css.map",
     "static/js/2.db07293b.chunk.js.LICENSE.txt": "/evrates/static/js/2.db07293b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1cfadf29.js",
     "static/js/2.db07293b.chunk.js",
-    "static/css/main.d6ebab21.chunk.css",
+    "static/css/main.70fb4152.chunk.css",
     "static/js/main.95e725a0.chunk.js"
   ]
 }
