@@ -15,10 +15,12 @@
 }
 
 .modal-question {
+  font-family: 'Dosis', sans-serif;
   text-align: center;
   color: #001d3d;
 }
 .modal-header {
+   
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -64,6 +66,7 @@ h3 {
 
 }
 select {
+  font-family: 'Dosis', sans-serif;
   border: 0 none;
   color: #001d3d;
   background: transparent;
