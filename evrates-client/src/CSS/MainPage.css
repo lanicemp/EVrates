@@ -48,6 +48,18 @@ button.modal-button {
   border: whitesmoke;
   font-style: italic;
   margin: 1em;
+  outline: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
+  
+}
+button.modal-button:hover{
+  background-color: #ffc300
+}
+button.modal-button:active {
+  background-color: #ffd500;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
 }
 
 @media (min-width: 768px) {
